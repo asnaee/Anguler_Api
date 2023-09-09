@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-12 d-flex d-flex row">
+    <div class="col-3">
+     
+      <form (ngSubmit)="InsertDa()">
+        <br />
+        <h3 class="alert alert-warning">Add-Employee</h3>
+        <div>
+          <label>Name</label>
+          <input name="employeeName" type="text" [(ngModel)]="empfr.employeeName" class="form-control" />
+        </div>
+        <div>
+          <label>AGE</label>
+          <input name="age" type="number" [(ngModel)]="empfr.age" class="form-control" />
+        </div>
+        <div>
+          <label>Join DATE</label>
+          <input name="joindate" type="date" [(ngModel)]="empfr.joindate" class="form-control" />
+        </div>
+        <div>
+          <label> ismarrid</label>
+          <input name="ismarrid" type="checkbox" [(ngModel)]="empfr.ismarrid" />
+        </div>
+        <div>
+          <label> addres</label>
+          <input name="addres" type="text" [(ngModel)]="empfr.addres" class="form-control" />
+        </div>
+        <div>
+          <button class="btn btn-outline-info">SAVE</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-9">
+      <br />
+      <h3 class="alert alert-warning">Employee-List</h3>
+
+      <table class="table table-bordered" >
+        <thead>
+          <tr style="background-color:black">
+            <th class="text-warning">NAME</th>
+            <th class="text-warning">AGE</th>
+            <th class="text-warning">JOIN DATE</th>
+            <th class="text-warning">ismarrid</th>
+            <th class="text-warning">ADDRESS</th>
+            <th class="text-warning">ACTION</th>
+          </tr>
+        </thead>
+        <tbody class="text-warning">
+          <tr *ngFor="let g of da">
+            <td class="text-warning">{{g.employeeName}}</td>
+            <td class="text-warning">{{g.age}}</td>
+            <td class="text-warning">{{g.joindate}}</td>
+            <td class="text-warning">{{g.ismarrid}}</td>
+            <td class="text-warning">{{g.addres}}</td>
+            <td>
+              <a (click)="datapopulat(g)" class="btn btn-warning">EDIT</a>
+              <a (click)="onDEL(g.employeeId)" class="btn btn-danger">DELETE</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
